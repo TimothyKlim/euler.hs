@@ -55,5 +55,11 @@ solve3 = primeFactor 600851475143
 -- A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.
 -- 
 -- Find the largest palindrome made from the product of two 3-digit numbers.
+startPalindromR :: Int
+startPalindromR = floor $ sqrt 900000
+
+lowPalindromR :: Int
+lowPalindromR = floor(999 / 100) * 100
+
 solve4 :: Int
-solve4 = maximum [product [x, y] | x <- [100..999], y <- [100..999], show(product[x, y]) == reverse(show $ product[x, y])]
+solve4 = maximum [product [x, y] | x <- [startPalindromR..999], y <- [lowPalindromR..startPalindromR], show(product[x, y]) == reverse(show $ product[x, y])]
