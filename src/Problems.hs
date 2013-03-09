@@ -2,6 +2,7 @@ module Problems
 ( solve1
 , solve2
 , solve3
+, solve4
 ) where
 
 -- Multiples of 3 and 5
@@ -50,3 +51,9 @@ primeFactor n = last $ primeFactors n
 solve3 :: Int
 solve3 = primeFactor 600851475143
 
+-- Largest palindrome product
+-- A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 99.
+-- 
+-- Find the largest palindrome made from the product of two 3-digit numbers.
+solve4 :: Int
+solve4 = maximum [product [x, y] | x <- reverse[100..999], y <- reverse[100..999], show(product[x, y]) == reverse(show $ product[x, y])]
