@@ -56,4 +56,4 @@ solve3 = primeFactor 600851475143
 -- 
 -- Find the largest palindrome made from the product of two 3-digit numbers.
 solve4 :: Int
-solve4 = maximum [product [x, y] | x <- reverse[100..999], y <- reverse[100..999], show(product[x, y]) == reverse(show $ product[x, y])]
+solve4 = maximum [product [x, y] | x <- [100..999], y <- [100..999], show(product[x, y]) == reverse(show $ product[x, y])]
