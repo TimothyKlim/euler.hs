@@ -1,6 +1,7 @@
 module Problems
 ( solve1
 , solve2
+, solve3
 ) where
 
 -- Multiples of 3 and 5
@@ -24,3 +25,28 @@ fib prev curr end = [prev] ++ if curr >= end then
 
 solve2 :: Int
 solve2 = sum [x | x <- fib 1 2 4000000, x `mod` 2 == 0]
+
+-- Largest prime factor
+-- The prime factors of 13195 are 5, 7, 13 and 29.
+-- 
+-- What is the largest prime factor of the number 600851475143 ?
+getPrimeFactors :: Int -> Int -> [Int] -> [Int]
+getPrimeFactors n x factors =
+  let primeFactors = take x factors
+  in
+    if product(primeFactors) == n then
+      primeFactors
+    else
+      getPrimeFactors n (x + 1) factors
+
+primeFactors :: Int -> [Int]
+primeFactors 1 = [1]
+primeFactors n = getPrimeFactors n 1 [x | x <- [1..floor(fromIntegral(n) ^^ 1/2)], n `mod` x == 0, x * x < n]
+
+primeFactor :: Int -> Int
+primeFactor 1 = 1
+primeFactor n = last $ primeFactors n
+  
+solve3 :: Int
+solve3 = primeFactor 600851475143
+
