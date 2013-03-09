@@ -1,1 +1,1 @@
-![Euler](http://projecteuler.net/profile/ktimothy.png)
+[![Euler](http://projecteuler.net/profile/ktimothy.png)](http://projecteuler.net)
